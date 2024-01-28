@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
 
 @layer base {
   :root {
@@ -51,8 +50,6 @@
   }
 }
 
-
- 
 @layer base {
   * {
     @apply border-border;
@@ -60,4 +57,14 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.text {
+  /** TEXT GRADIENT */
+  color: #eebacf;
+  background-image: -webkit-linear-gradient(45deg, #eebacf 8%, #149eca 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
 }

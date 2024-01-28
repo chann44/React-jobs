@@ -4,7 +4,7 @@ import { siteRoutes } from "@/config/site";
 import Link from "next/link";
 import { Icons } from "./icons";
 
-const NavLinks: NavItem[] = [
+export const NavLinks: NavItem[] = [
   { href: siteRoutes.jobs, title: "Browse Jobs" },
   { href: siteRoutes.consultaint, title: "Consultaitns" },
   { href: siteRoutes.learn, title: "Learn" },
@@ -13,15 +13,16 @@ const NavLinks: NavItem[] = [
 export function MainNav() {
   return (
     <nav className="flex items-center w-full">
-      <div className="flex gap-5">
+      <div className="md:flex gap-5 hidden">
         {NavLinks.map((link, index) => (
           <NavLink key={index} {...link} />
         ))}
       </div>
-      <div className="ml-auto">
+      <div className="ml-auto space-x-4 hidden md:block">
         <Button className="gap-2">
           Post a Job <Icons.arrowRight />
         </Button>
+        <Button variant={"ghost"}>Login</Button>
       </div>
     </nav>
   );

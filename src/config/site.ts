@@ -17,6 +17,7 @@ export const authRoutes = {
 } as const;
 
 export const siteRoutes = {
+  root: "/",
   hire: "/hire",
   jobs: "/jobs",
   learn: "/learn",

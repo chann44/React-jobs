@@ -6,6 +6,7 @@ import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 const fontOutfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
