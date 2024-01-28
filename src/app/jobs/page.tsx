@@ -1,5 +1,5 @@
 function Page() {
-  return <main></main>;
+  return <main>Browse all jobs here</main>;
 }
 
 export default Page;

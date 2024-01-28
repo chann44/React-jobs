@@ -1,5 +1,5 @@
 function Page() {
-  return <main></main>;
+  return <main>Learn React from community Resources</main>;
 }
 
 export default Page;

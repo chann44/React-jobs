@@ -1,5 +1,5 @@
 function Page() {
-  return <main>Job Details</main>;
+  return <main>Reources post page</main>;
 }
 
 export default Page;

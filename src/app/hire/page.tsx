@@ -1,5 +1,5 @@
 function Page() {
-  return <main></main>;
+  return <main>Hire React Developers</main>;
 }
 
 export default Page;

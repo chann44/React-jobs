@@ -1,5 +1,5 @@
 function Page() {
-  return <main></main>;
+  return <main>if you are a agency and freelancer this page is for you</main>;
 }
 
 export default Page;
