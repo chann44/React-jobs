@@ -5,6 +5,7 @@ import "./globals.css";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { SiteHeader } from "@/components/site-header";
 
 const fontOutfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
@@ -25,10 +26,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-outfit antialiased container",
+          "min-h-screen bg-background font-outfit antialiased",
           fontOutfit.variable
         )}
       >
+        <SiteHeader />
         {children}
       </body>
     </html>

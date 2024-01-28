@@ -1,3 +1,3 @@
-export function SiteHeader() {
-  return <header></header>;
+export function SiteFooter() {
+  return <footer className="container"></footer>;
 }
