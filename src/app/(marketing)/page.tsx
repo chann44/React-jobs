@@ -36,15 +36,15 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <div className="bg-slate-50 dark:bg-transparent">
+      <div className="bg-secondary">
         <section
           id="clients"
-          className="container flex flex-col gap-10 md:flex-row md:gap-20 items-center py-10 max-w-6xl mx-auto"
+          className="container flex flex-col gap-10 md:flex-row md:gap-20 items-center py-8 sm:py-12 md:py-32 max-w-6xl mx-auto"
         >
           <h2 className="text-lg md:text-2xl">Truted by:</h2>
-          <div className="grid md:grid-cols-5 gap-5 items-center">
+          <div className="grid grid-cols-5 gap-5 items-center">
             {clients.map((img, index) => (
-              <div key={index} className="relative h-20 w-32">
+              <div key={index} className="relative h-12 w-12 md:h-20 md:w-32">
                 <Image
                   fill
                   className="object-contain"
@@ -57,10 +57,7 @@ export default function Home() {
         </section>
       </div>
       <FeaturedJobs />
-      <section
-        id="features"
-        className="space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
-      >
+      <section id="features" className="space-y-6 bg-secondary py-12 lg:py-24">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <h2 className="font-heading text text-2xl leading-[1.1] sm:text-3xl md:text-6xl">
             Hire React developers

@@ -25,7 +25,7 @@ export function JobCard({
         </div>
         <div className="flex flex-col gap-y-1">
           <p className="font-semibold text-lg">{title}</p>
-          <div className="flex items-start gap-0.5 text-base font-light">
+          <div className="flex flex-wrap items-start gap-0.5 text-base font-light">
             <p>{companyName}</p>
             <LucideDot />
             <p>{city}</p>
@@ -35,14 +35,14 @@ export function JobCard({
             <p>{postedOn}</p>
           </div>
         </div>
-        <div className="flex items-center gap-4 ml-auto">
+        <div className="flex items-center gap-4 md:ml-auto">
           <Button variant={"outline"}>Save</Button>
           <Button variant={"secondary"}>Apply</Button>
         </div>
       </div>
-      <div className="flex flex-col md:items-center md:flex-row gap-4 text-sm mt-3">
+      <div className="flex flex-wrap md:items-center gap-4 text-sm mt-3">
         {tags.map((tag, index) => (
-          <p className="bg-green-300 px-2 rounded py-0.5" key={index}>
+          <p className="bg-muted px-2 rounded py-0.5" key={index}>
             {tag}
           </p>
         ))}

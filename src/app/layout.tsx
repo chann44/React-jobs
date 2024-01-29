@@ -7,6 +7,8 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ThemeProvider } from "@/providers/theme-provider";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const fontOutfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
@@ -25,16 +27,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-outfit antialiased",
-          fontOutfit.variable
-        )}
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
       >
-        <SiteHeader />
-        {children}
-        <SiteFooter />
-      </body>
+        <body
+          className={cn(
+            "min-h-screen bg-background font-outfit antialiased",
+            fontOutfit.variable
+          )}
+        >
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+          <div className="right-4 bottom-5 fixed">
+            <ModeToggle />
+          </div>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
