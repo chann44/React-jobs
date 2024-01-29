@@ -1,5 +1,18 @@
 import { siteConfig } from "@/config/site";
+import Image from "next/image";
 import Link from "next/link";
+import { FeaturedJobs } from "./components/featuredJobs";
+
+const prefix = "/clients/";
+const postfix = ".svg";
+
+const clients = [
+  `${prefix}netflix${postfix}`,
+  `${prefix}discord${postfix}`,
+  `${prefix}pinterest${postfix}`,
+  `${prefix}vercel${postfix}`,
+  `${prefix}uber${postfix}`,
+];
 
 export default function Home() {
   return (
@@ -23,6 +36,27 @@ export default function Home() {
           </p>
         </div>
       </section>
+      <div className="bg-slate-50 dark:bg-transparent">
+        <section
+          id="clients"
+          className="container flex flex-col gap-10 md:flex-row md:gap-20 items-center py-10 max-w-6xl mx-auto"
+        >
+          <h2 className="text-lg md:text-2xl">Truted by:</h2>
+          <div className="grid md:grid-cols-5 gap-5 items-center">
+            {clients.map((img, index) => (
+              <div key={index} className="relative h-20 w-32">
+                <Image
+                  fill
+                  className="object-contain"
+                  src={img}
+                  alt="client logo"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+      <FeaturedJobs />
       <section
         id="features"
         className="space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
