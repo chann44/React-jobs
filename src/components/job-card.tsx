@@ -13,7 +13,7 @@ export function JobCard({
   title,
 }: IJob) {
   return (
-    <div id="job-card" className="w-full p-4 rounded-md">
+    <div className="w-full p-4 rounded-md">
       <div className="flex flex-col md:flex-row gap-5 w-full">
         <div className="h-9 w-9 relative rounded-md">
           <Image

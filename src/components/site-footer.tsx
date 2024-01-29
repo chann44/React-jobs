@@ -34,7 +34,7 @@ export function SiteFooter() {
           </div>
         </div>
       </footer>
-      <p className="p-4 text-center bg-slate-50 dark:bg-transparent">
+      <p className="p-4 text-center bg-secondary">
         MIT Licensed | Copyright © 2024-PRESENT Vikash Manda
       </p>
     </>

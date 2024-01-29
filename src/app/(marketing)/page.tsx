@@ -2,6 +2,7 @@ import { siteConfig } from "@/config/site";
 import Image from "next/image";
 import Link from "next/link";
 import { FeaturedJobs } from "./components/featuredJobs";
+import { FeaturedConsultaint } from "@/components/featured-consultaint";
 
 const prefix = "/clients/";
 const postfix = ".svg";
@@ -70,6 +71,7 @@ export default function Home() {
           </p>
         </div>
       </section>
+      <FeaturedConsultaint />
       <section id="open-source" className="container py-8 md:py-12 lg:py-24">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
           <h2 className="font-outfit font-semibold text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
