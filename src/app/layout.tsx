@@ -5,9 +5,11 @@ import "./globals.css";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+
+import { Providers } from "@/providers";
+
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { ThemeProvider } from "@/providers/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
 
 const fontOutfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -27,12 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
+      <Providers>
         <body
           className={cn(
             "min-h-screen bg-background font-outfit antialiased",
@@ -46,7 +43,7 @@ export default function RootLayout({
             <ModeToggle />
           </div>
         </body>
-      </ThemeProvider>
+      </Providers>
     </html>
   );
 }
