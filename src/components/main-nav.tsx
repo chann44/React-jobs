@@ -1,7 +1,10 @@
-import { type NavItem } from "@/types";
-import { Button } from "./ui/button";
-import { siteRoutes } from "@/config/site";
 import Link from "next/link";
+
+import { type NavItem } from "@/types";
+import { cn } from "@/lib/utils";
+
+import { Button, buttonVariants } from "./ui/button";
+import { siteRoutes } from "@/config/site";
 import { Icons } from "./icons";
 
 export const NavLinks: NavItem[] = [
@@ -19,9 +22,16 @@ export function MainNav() {
         ))}
       </div>
       <div className="ml-auto space-x-4 hidden md:block">
-        <Button className="gap-2">
+        <Link
+          href={siteRoutes.postJob}
+          className={cn(
+            buttonVariants({
+              variant: "default",
+            })
+          )}
+        >
           Post a Job <Icons.arrowRight />
-        </Button>
+        </Link>
         <Button variant={"ghost"}>Login</Button>
       </div>
     </nav>
