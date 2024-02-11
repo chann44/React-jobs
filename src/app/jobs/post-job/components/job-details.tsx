@@ -8,24 +8,33 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { HTMLAttributes } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { filters } from "@/lib/utils";
+import { Textarea } from "@/components/ui/textarea";
 
 const jobFormSchema = z.object({
   title: z.string().min(2).max(50),
   workType: z.string(),
   seniorityLevel: z.string(),
   description: z.string().max(200),
-  jobType: z.string(),
+  locationType: z.string(),
   location: z.string(),
   workPermit: z.string(),
-  salary: z.number(),
-  applyTarget: z.string(),
+  salary: z.string(),
+  applyTarget: z.string().url(),
 });
 
 export function JobDetailsForm() {
@@ -67,7 +76,25 @@ export function JobDetailsForm() {
               <FormItem>
                 <FormLabel>Work type</FormLabel>
                 <FormControl>
-                  <Input placeholder="Jr. React Engineer" {...field} />
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select work type" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {filters.workType.map((item, index) => {
+                        return (
+                          <SelectItem key={index} value={item}>
+                            {item}
+                          </SelectItem>
+                        );
+                      })}
+                    </SelectContent>
+                  </Select>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -80,8 +107,104 @@ export function JobDetailsForm() {
               <FormItem>
                 <FormLabel>Level of seniority</FormLabel>
                 <FormControl>
-                  <Input placeholder="Jr. React Engineer" {...field} />
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a seniority level requried for this job" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {filters.sinorityLevels.map((item, index) => {
+                        return (
+                          <SelectItem key={index} value={item}>
+                            {item}
+                          </SelectItem>
+                        );
+                      })}
+                    </SelectContent>
+                  </Select>
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="location"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Location</FormLabel>
+                <FormControl>
+                  <Input placeholder="Banglore, india" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="locationType"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Location Type</FormLabel>
+                <FormControl>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select type of locaton" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {filters.locationType.map((item, index) => {
+                        return (
+                          <SelectItem key={index} value={item}>
+                            {item}
+                          </SelectItem>
+                        );
+                      })}
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="salary"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Salary</FormLabel>
+                <FormControl>
+                  <Input placeholder="$" {...field} />
+                </FormControl>
+                <FormDescription>
+                  It should be monthly amount and also currency is dollors
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="applyTarget"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Apply Target</FormLabel>
+                <FormControl>
+                  <Input placeholder="url" {...field} />
+                </FormControl>
+                <FormDescription>
+                  URL (http://) or email (@) where candidates can apply to this
+                  job
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -93,32 +216,19 @@ export function JobDetailsForm() {
               <FormItem>
                 <FormLabel>Description</FormLabel>
                 <FormControl>
-                  <Input placeholder="Jr. React Engineer" {...field} />
+                  <Textarea
+                    placeholder="Description about opening"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <Button type="submit">Save Changes</Button>
+          <Button>Save Changes</Button>
         </form>
       </Form>
     </section>
-  );
-}
-
-type SelectTabProps = HTMLAttributes<HTMLDivElement>;
-
-export function SelectTab({ children }: SelectTabProps) {
-  return <div className="flex gap-4">{children}</div>;
-}
-
-type SelectTabItemProps = HTMLAttributes<HTMLDivElement> & {};
-
-export function SelectTabItem({ onClick, children }: SelectTabItemProps) {
-  return (
-    <div className="px-6 py-3" onClick={onClick}>
-      {children}
-    </div>
   );
 }
